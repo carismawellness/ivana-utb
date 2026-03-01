@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Plan — Underneath the Brokenness | Ivana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5F0E8;
+  --terracotta: #C4846C;
+  --sage: #9CAF8B;
+  --brown: #5C4033;
+  --gold: #D4A96A;
+  --warm-white: #FFFDF8;
+  --light-sage: #E8F0E4;
+  --light-terracotta: #F5E0D8;
+  --light-gold: #F5EBD8;
+  --dark-brown: #3A2820;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--brown);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; line-height: 1.25; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 0.5em; }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); margin-bottom: 0.4em; }
+h4 { font-size: 1.1rem; margin-bottom: 0.3em; }
+p { margin-bottom: 1em; }
+strong { font-weight: 600; }
+
+/* Layout */
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+/* Cover Page */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(160deg, var(--warm-white) 0%, var(--cream) 50%, var(--light-gold) 100%);
+  padding: 40px 24px;
+  position: relative;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--sage));
+}
+.cover-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.cover h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--dark-brown);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.cover .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-style: italic;
+  color: var(--terracotta);
+  margin-bottom: 40px;
+}
+.cover-meta {
+  font-size: 0.85rem;
+  color: #8B7B6B;
+  line-height: 1.9;
+}
+.cover-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+
+/* Section */
+.section {
+  padding: 60px 0;
+  border-bottom: 1px solid rgba(196,132,108,0.15);
+}
+.section:last-child { border-bottom: none; }
+.section-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+  display: block;
+}
+.section-intro {
+  font-size: 1.05rem;
+  color: #6B5B4B;
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 30px 0;
+}
+.card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(92,64,51,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(92,64,51,0.1); }
+.card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+.card-icon.terracotta { background: var(--light-terracotta); }
+.card-icon.sage { background: var(--light-sage); }
+.card-icon.gold { background: var(--light-gold); }
+
+/* Stat cards */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+.stat-card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  border-top: 3px solid var(--terracotta);
+}
+.stat-card.sage-border { border-top-color: var(--sage); }
+.stat-card.gold-border { border-top-color: var(--gold); }
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: #8B7B6B;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+thead th {
+  background: var(--brown);
+  color: var(--warm-white);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+thead th:first-child { border-radius: 8px 0 0 0; }
+thead th:last-child { border-radius: 0 8px 0 0; }
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(196,132,108,0.12);
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(245,240,232,0.4); }
+
+/* Callout */
+.callout {
+  background: var(--warm-white);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 30px 0;
+  font-style: italic;
+  color: #6B5B4B;
+}
+.callout strong { font-style: normal; color: var(--brown); }
+.callout.terracotta { border-left-color: var(--terracotta); }
+.callout.sage { border-left-color: var(--sage); }
+
+/* Phase timeline */
+.phase-timeline {
+  position: relative;
+  margin: 40px 0;
+}
+.phase-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.phase-marker {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+.phase-marker.p1 { background: var(--terracotta); }
+.phase-marker.p2 { background: var(--gold); }
+.phase-marker.p3 { background: var(--sage); }
+.phase-content {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(92,64,51,0.05);
+}
+.phase-content h4 { color: var(--dark-brown); margin-bottom: 8px; }
+.phase-content .phase-period {
+  font-size: 0.8rem;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Archetype cards */
+.archetype-card {
+  background: var(--warm-white);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(92,64,51,0.06);
+  border-left: 4px solid var(--terracotta);
+}
+.archetype-card:nth-child(2) { border-left-color: var(--gold); }
+.archetype-card:nth-child(3) { border-left-color: var(--sage); }
+.archetype-card:nth-child(4) { border-left-color: #B89CC4; }
+.archetype-card:nth-child(5) { border-left-color: #7BB5C4; }
+.archetype-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+.archetype-tagline {
+  font-style: italic;
+  color: var(--terracotta);
+  margin-bottom: 16px;
+}
+.archetype-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.archetype-detail {
+  padding: 16px;
+  background: var(--cream);
+  border-radius: 8px;
+}
+.archetype-detail h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+.archetype-detail p { font-size: 0.9rem; margin-bottom: 0; }
+.archetype-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #6B5B4B;
+  padding: 16px 20px;
+  border-left: 3px solid var(--gold);
+  margin: 16px 0 0;
+  background: rgba(212,169,106,0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Revenue chart (CSS-only) */
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 260px;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(92,64,51,0.15);
+  margin: 30px 0 10px;
+}
+.chart-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+.chart-bar {
+  width: 100%;
+  max-width: 60px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s ease;
+  position: relative;
+}
+.chart-bar .bar-value {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.chart-bar.conservative { background: var(--light-terracotta); }
+.chart-bar.base { background: var(--terracotta); }
+.chart-bar.optimistic { background: var(--dark-brown); }
+.chart-label {
+  font-size: 0.75rem;
+  color: #8B7B6B;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.chart-legend {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 16px;
+  font-size: 0.8rem;
+}
+.chart-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.chart-legend .leg-c::before { background: var(--light-terracotta); }
+.chart-legend .leg-b::before { background: var(--terracotta); }
+.chart-legend .leg-o::before { background: var(--dark-brown); }
+
+/* Risk matrix */
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.risk-item {
+  background: var(--warm-white);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.risk-badge {
+  min-width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.risk-badge.high { background: var(--terracotta); }
+.risk-badge.med { background: var(--gold); }
+.risk-badge.low { background: var(--sage); }
+
+/* Checklist */
+.checklist { list-style: none; margin: 20px 0; }
+.checklist li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  border-bottom: 1px solid rgba(196,132,108,0.1);
+  font-size: 0.95rem;
+}
+.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 14px;
+  width: 18px; height: 18px;
+  border: 2px solid var(--sage);
+  border-radius: 4px;
+}
+
+/* TOC */
+.toc {
+  background: var(--warm-white);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px 0;
+  box-shadow: 0 2px 12px rgba(92,64,51,0.06);
+}
+.toc h3 { margin-bottom: 20px; }
+.toc-list { list-style: none; }
+.toc-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(196,132,108,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.toc-list li:last-child { border-bottom: none; }
+.toc-list a {
+  color: var(--brown);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.toc-list a:hover { color: var(--terracotta); }
+.toc-list .toc-num {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-right: 12px;
+}
+.toc-list .toc-page {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Sub-section divider */
+.sub-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px 0;
+}
+
+/* Pill badges */
+.pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pill.terracotta { background: var(--light-terracotta); color: var(--terracotta); }
+.pill.sage { background: var(--light-sage); color: #5A7A4E; }
+.pill.gold { background: var(--light-gold); color: #9B7A3E; }
+
+/* Print styles */
+@media print {
+  body { font-size: 11pt; }
+  .cover { min-height: auto; page-break-after: always; padding: 80px 24px; }
+  .section { page-break-inside: avoid; padding: 30px 0; }
+  .card, .stat-card, .archetype-card { box-shadow: none; border: 1px solid #eee; }
+  .toc { page-break-after: always; }
+}
+
+@media (max-width: 640px) {
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .phase-item { grid-template-columns: 48px 1fr; gap: 16px; }
+  .phase-marker { width: 40px; height: 40px; font-size: 1rem; }
+  .chart-bars { height: 200px; }
+  .toc { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- COVER PAGE -->
+<!-- ============================================ -->
+<div class="cover">
+  <div class="cover-badge">Business Plan</div>
+  <h1>Underneath the Brokenness</h1>
+  <p class="subtitle">A Spiritual Wellness Coaching Practice for Women in Malta</p>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <strong>Prepared for</strong> Ivana<br>
+    <strong>Date</strong> March 2026<br>
+    <strong>Market</strong> Malta (pop. ~542,000)<br><br>
+    <em>Compiled from specialist analyses by BCG Strategy, McKinsey Research,<br>
+    Marketing Planning, and Consumer Psychology teams</em>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================================ -->
+<div class="container">
+  <div class="toc" id="toc">
+    <h3>Contents</h3>
+    <ol class="toc-list">
+      <li><span class="toc-num">01</span><a href="#exec-summary">Executive Summary</a></li>
+      <li><span class="toc-num">02</span><a href="#market">Market Opportunity</a></li>
+      <li><span class="toc-num">03</span><a href="#archetypes">Customer Archetypes</a></li>
+      <li><span class="toc-num">04</span><a href="#gtm">Go-to-Market Strategy</a></li>
+      <li><span class="toc-num">05</span><a href="#marketing">Marketing Plan</a></li>
+      <li><span class="toc-num">06</span><a href="#financials">Financial Projections</a></li>
+      <li><span class="toc-num">07</span><a href="#launch">90-Day Launch Plan</a></li>
+      <li><span class="toc-num">08</span><a href="#risks">Risk Assessment</a></li>
+      <li><span class="toc-num">09</span><a href="#moat">Competitive Moat</a></li>
+      <li><span class="toc-num">10</span><a href="#appendix">Key Metrics &amp; Benchmarks</a></li>
+    </ol>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 01. EXECUTIVE SUMMARY -->
+  <!-- ============================================ -->
+  <div class="section" id="exec-summary">
+    <span class="section-number">01 &mdash; Executive Summary</span>
+    <h2>The Opportunity at a Glance</h2>
+    <p class="section-intro">Ivana is launching a spiritual wellness coaching practice in Malta, targeting women aged 25&ndash;55 who feel emotionally stuck, anxious, or broken. The business model is built on a workshop-led acquisition engine: free 90-minute workshops generate leads that convert into paid 8-week group coaching programs.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">&euro;6.3T</div>
+        <div class="stat-label">Global Wellness Economy</div>
+      </div>
+      <div class="stat-card sage-border">
+        <div class="stat-number">15-17%</div>
+        <div class="stat-label">Spiritual Wellness CAGR</div>
+      </div>
+      <div class="stat-card gold-border">
+        <div class="stat-number">~110K</div>
+        <div class="stat-label">Women 25-55 in Malta</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Zero</div>
+        <div class="stat-label">Direct Competitors</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Key Strategic Insight:</strong> In a micro-market like Malta, the dominant go-to-market lever is not scale &mdash; it is <strong>trust velocity</strong>. Every element of the plan is designed to compress the time between &ldquo;I&rsquo;ve never heard of Ivana&rdquo; and &ldquo;I trust her with my inner world.&rdquo;
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon terracotta">&#9672;</div>
+        <h4>The Offer Ladder</h4>
+        <p><strong>Free Workshop</strong> (90 min) &rarr; <strong>&euro;497 Group Program</strong> (8 weeks) &rarr; <strong>&euro;997 VIP</strong> (8 weeks + 4 private sessions) &rarr; <strong>&euro;150/session 1:1</strong></p>
+      </div>
+      <div class="card">
+        <div class="card-icon sage">&#9670;</div>
+        <h4>The Positioning</h4>
+        <p>Ivana bridges <strong>psychology and spirituality</strong> &mdash; the dual-lens approach. 7+ years working with women on emotional eating, body image, and the mind-body connection. Author of <em>Underneath the Brokenness</em>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">&#9671;</div>
+        <h4>The Revenue Path</h4>
+        <p><strong>Year 1:</strong> &euro;15K&ndash;45K &bull; <strong>Year 2:</strong> &euro;56K&ndash;167K &bull; <strong>Year 3:</strong> &euro;106K&ndash;354K<br>Profitable from Month 1. Break-even at just 2 conversions per workshop.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 02. MARKET OPPORTUNITY -->
+  <!-- ============================================ -->
+  <div class="section" id="market">
+    <span class="section-number">02 &mdash; Market Opportunity</span>
+    <h2>Market Sizing &amp; Trends</h2>
+    <p class="section-intro">The spiritual wellness coaching market sits at the intersection of three converging mega-trends: the post-COVID mental wellness awakening, the rise of the women&rsquo;s empowerment economy, and the secular-spiritual movement replacing traditional institutional frameworks.</p>
+
+    <h3>TAM / SAM / SOM</h3>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">$4.9-5.4B</div>
+        <div class="stat-label">TAM (Spiritual Wellness Coaching, Women)</div>
+      </div>
+      <div class="stat-card sage-border">
+        <div class="stat-number">&euro;0.8-1.7M</div>
+        <div class="stat-label">SAM (Malta, Spiritual/Holistic)</div>
+      </div>
+      <div class="stat-card gold-border">
+        <div class="stat-number">&euro;18-48K</div>
+        <div class="stat-label">SOM Year 1 (Ivana&rsquo;s Capture)</div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <h3>Malta Market Deep Dive</h3>
+    <table>
+      <thead>
+        <tr><th>Segment</th><th>Size</th><th>Relevance</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Maltese women, 25&ndash;35</td><td>~28,000</td><td>High digital engagement; likely workshop attendees</td></tr>
+        <tr><td>Maltese women, 36&ndash;45</td><td>~27,000</td><td>Peak earning years; most likely to invest in coaching</td></tr>
+        <tr><td>Maltese women, 46&ndash;55</td><td>~25,000</td><td>Seeking meaning and purpose; financially established</td></tr>
+        <tr><td>Expat women, 25&ndash;55</td><td>~30,000&ndash;33,000</td><td>Isolated, seeking belonging; higher propensity to invest</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout sage">
+      <strong>The Expat Opportunity:</strong> Expat women are disproportionately valuable. They are more likely to feel disconnected, less embedded in Malta&rsquo;s Catholic community structures, often higher-income, and culturally pre-disposed to coaching. Ivana herself is a Serbian immigrant &mdash; uniquely positioned to connect with this segment.
+    </div>
+
+    <h3>Key Market Trends</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon terracotta">&#8679;</div>
+        <h4>Post-COVID Wellness Surge</h4>
+        <p>+25% anxiety/depression prevalence. +30% YoY spending on mental wellness. 77% of consumers now view wellness as &ldquo;very important.&rdquo;</p>
+      </div>
+      <div class="card">
+        <div class="card-icon sage">&#10029;</div>
+        <h4>Spiritual Wellness Boom</h4>
+        <p>Fastest-growing segment at 15&ndash;17% CAGR. &ldquo;Inner healing&rdquo; search volume +120%. 42% of wellness consumers want a spiritual component.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">&#9826;</div>
+        <h4>Community Over Digital</h4>
+        <p>+55% interest in group programs post-isolation. Small-group coaching (4&ndash;12) achieves 70&ndash;85% completion vs. 3&ndash;8% for self-paced courses.</p>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <h3>The White Space Ivana Fills</h3>
+    <table>
+      <thead>
+        <tr><th>Dimension</th><th>Existing Supply in Malta</th><th>Ivana&rsquo;s Position</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Modality</strong></td><td>Therapy OR coaching OR healing (siloed)</td><td>Dual-lens: psychology + spirituality integrated</td></tr>
+        <tr><td><strong>Format</strong></td><td>1:1 sessions or large classes</td><td>Intimate 8&ndash;12 women cohort program</td></tr>
+        <tr><td><strong>Audience</strong></td><td>Generic (all genders, all issues)</td><td>Hyper-specific: women who feel &ldquo;broken&rdquo;</td></tr>
+        <tr><td><strong>Price</strong></td><td>Per-session (&euro;50&ndash;150)</td><td>Program-based with clear transformation arc</td></tr>
+        <tr><td><strong>Content Authority</strong></td><td>No books, no proprietary methods</td><td>Published book + &ldquo;Underneath the Wholeness&rdquo; curriculum</td></tr>
+        <tr><td><strong>Cultural Fit</strong></td><td>Imported American/Eastern models</td><td>Serbian-born, Malta-based, Mediterranean sensibility</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 03. CUSTOMER ARCHETYPES -->
+  <!-- ============================================ -->
+  <div class="section" id="archetypes">
+    <span class="section-number">03 &mdash; Customer Archetypes</span>
+    <h2>The Five Women You&rsquo;ll Serve</h2>
+    <p class="section-intro">Five distinct archetypes represent your core audience. Most women are a blend of 2&ndash;3 archetypes. Understanding their inner world, pain points, and language is key to everything: ad copy, workshop content, and program design.</p>
+
+    <div class="archetype-card">
+      <div class="archetype-name">1. The Exhausted Achiever</div>
+      <div class="archetype-tagline">She has everything on paper &mdash; and nothing inside.</div>
+      <div class="archetype-details">
+        <div class="archetype-detail">
+          <h4>Who She Is</h4>
+          <p>Age 32&ndash;42. Career woman, possibly with children. Works in finance, legal, tech, or iGaming in Malta. High-functioning anxiety. Reaches for wine at 8pm.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Her Pain</h4>
+          <p>Exhausted by performing &ldquo;fine.&rdquo; Feels guilty for not being grateful. The gap between her outer life and inner life is growing. Sunday night dread.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>What She Needs to Hear</h4>
+          <p>&ldquo;You&rsquo;re not broken. You&rsquo;ve just forgotten who you are underneath it all.&rdquo; &mdash; This is the headline she&rsquo;ll screenshot.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Conversion Path</h4>
+          <p><span class="pill terracotta">Workshop: 85%</span> <span class="pill gold">Group: 65%</span> <span class="pill sage">VIP: 30%</span></p>
+        </div>
+      </div>
+      <div class="archetype-quote">&ldquo;I have a beautiful life. So why do I feel like I&rsquo;m watching it from behind glass?&rdquo;</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">2. The Post-Breakup / Loss Woman</div>
+      <div class="archetype-tagline">She&rsquo;s in the in-between &mdash; and the in-between is the loneliest place.</div>
+      <div class="archetype-details">
+        <div class="archetype-detail">
+          <h4>Who She Is</h4>
+          <p>Age 28&ndash;45. Going through or recently emerged from divorce, breakup, loss of a parent, or miscarriage. Still finding her footing. Possibly new to Malta (expat).</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Her Pain</h4>
+          <p>Identity crisis &mdash; who is she without the relationship? Loneliness in a small island where everyone seems coupled. The grief that nobody sees.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>What She Needs to Hear</h4>
+          <p>&ldquo;You don&rsquo;t have to have it all figured out to show up.&rdquo; &mdash; Permission to be unfinished.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Conversion Path</h4>
+          <p><span class="pill terracotta">Workshop: 90%</span> <span class="pill gold">Group: 70%</span> <span class="pill sage">VIP: 35%</span></p>
+        </div>
+      </div>
+      <div class="archetype-quote">&ldquo;Everyone keeps saying I&rsquo;ll be fine. But nobody asks how I actually am.&rdquo;</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">3. The Emotional Eater</div>
+      <div class="archetype-tagline">She knows it was never about the food. She just doesn&rsquo;t know what it IS about.</div>
+      <div class="archetype-details">
+        <div class="archetype-detail">
+          <h4>Who She Is</h4>
+          <p>Age 30&ndash;50. Has tried every diet &mdash; keto, intermittent fasting, Weight Watchers, Carisma Slimming. Yo-yo pattern. Body image issues. Ivana&rsquo;s core expertise area.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Her Pain</h4>
+          <p>Shame cycle: eat &rarr; guilt &rarr; restrict &rarr; binge &rarr; shame. The food is the symptom, not the problem. She suspects this but can&rsquo;t name it.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>What She Needs to Hear</h4>
+          <p>&ldquo;The chocolate at 9pm isn&rsquo;t hunger. It&rsquo;s a feeling you don&rsquo;t have words for yet.&rdquo; &mdash; Validation without judgment.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Conversion Path</h4>
+          <p><span class="pill terracotta">Workshop: 80%</span> <span class="pill gold">Group: 60%</span> <span class="pill sage">VIP: 25%</span></p>
+        </div>
+      </div>
+      <div class="archetype-quote">&ldquo;I don&rsquo;t need another meal plan. I need someone to understand why I keep doing this.&rdquo;</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">4. The Anxious People-Pleaser</div>
+      <div class="archetype-tagline">She says yes to everyone &mdash; except herself.</div>
+      <div class="archetype-details">
+        <div class="archetype-detail">
+          <h4>Who She Is</h4>
+          <p>Age 25&ndash;40. Often in caregiving roles (teacher, nurse, HR, admin). Maltese cultural expectation to be the &ldquo;good daughter.&rdquo; Low hum of anxiety. Terrified of being &ldquo;selfish.&rdquo;</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Her Pain</h4>
+          <p>Burnout approaching. Cannot say no. Feels invisible. The anxiety sits in her chest all day. She&rsquo;s functioning but slowly drowning.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>What She Needs to Hear</h4>
+          <p>&ldquo;You&rsquo;ve been strong for so long that you&rsquo;ve forgotten what it feels like to just... be.&rdquo; &mdash; Recognition of her pattern.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Conversion Path</h4>
+          <p><span class="pill terracotta">Workshop: 75%</span> <span class="pill gold">Group: 55%</span> <span class="pill sage">VIP: 20%</span></p>
+        </div>
+      </div>
+      <div class="archetype-quote">&ldquo;I catch myself saying &lsquo;I&rsquo;m fine&rsquo; ten times a day. And every time, I feel the distance between that word and the truth.&rdquo;</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">5. The Spiritual Seeker</div>
+      <div class="archetype-tagline">She feels the pull toward something deeper &mdash; she just doesn&rsquo;t know where to go.</div>
+      <div class="archetype-details">
+        <div class="archetype-detail">
+          <h4>Who She Is</h4>
+          <p>Age 35&ndash;55. Has dabbled in yoga, meditation, crystals, tarot. &ldquo;Spiritual but not religious.&rdquo; May be a lapsed Catholic. Looking for structure, not dogma.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Her Pain</h4>
+          <p>Fragmented practice &mdash; bits of everything, nothing coherent. Craves a guide, not a guru. Malta&rsquo;s Catholic culture makes her feel she can&rsquo;t talk about this openly.</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>What She Needs to Hear</h4>
+          <p>&ldquo;This is not tied to any religion. It&rsquo;s your connection to yourself &mdash; your intuition, the part of you that knows things before your mind catches up.&rdquo;</p>
+        </div>
+        <div class="archetype-detail">
+          <h4>Conversion Path</h4>
+          <p><span class="pill terracotta">Workshop: 70%</span> <span class="pill gold">Group: 50%</span> <span class="pill sage">VIP: 40%</span></p>
+        </div>
+      </div>
+      <div class="archetype-quote">&ldquo;I&rsquo;ve been collecting tools for years &mdash; crystals, journals, apps. But nothing has given me what I actually need: a place to belong.&rdquo;</div>
+    </div>
+
+    <div class="callout">
+      <strong>Cross-Archetype Insight:</strong> Most women are a blend of 2&ndash;3 archetypes. The Exhausted Achiever who also emotionally eats. The People-Pleaser who is also going through a breakup. The landing page copy is written to speak across archetypes simultaneously &mdash; each bullet in &ldquo;Is This You?&rdquo; targets a different archetype while feeling personal to all.
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 04. GO-TO-MARKET STRATEGY -->
+  <!-- ============================================ -->
+  <div class="section" id="gtm">
+    <span class="section-number">04 &mdash; Go-to-Market Strategy</span>
+    <h2>Three-Phase Market Entry</h2>
+    <p class="section-intro">The go-to-market follows a &ldquo;land, expand, scale&rdquo; framework adapted for a solo practitioner in a micro-market. Do not advance phases until success criteria are met.</p>
+
+    <div class="phase-timeline">
+      <div class="phase-item">
+        <div class="phase-marker p1">1</div>
+        <div class="phase-content">
+          <div class="phase-period">Months 1&ndash;3</div>
+          <h4>Validate &mdash; &ldquo;Prove the Model&rdquo;</h4>
+          <p>Run 1&ndash;2 workshops. Fill first coaching cohort (even 4&ndash;6 women). Collect 3&ndash;5 testimonials. Document every metric.</p>
+          <p><strong>Budget:</strong> &euro;500&ndash;800 total &bull; <strong>Go/No-Go:</strong> 15+ attendees, 3+ paying clients, 80%+ completion</p>
+          <p><strong>Channel Mix:</strong> 40% personal network &bull; 30% Meta ads (&euro;150&ndash;200) &bull; 20% Instagram organic &bull; 10% WhatsApp</p>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-marker p2">2</div>
+        <div class="phase-content">
+          <div class="phase-period">Months 4&ndash;6</div>
+          <h4>Establish &mdash; &ldquo;Build the Engine&rdquo;</h4>
+          <p>1 workshop/month on a predictable cadence. Increase ad spend to &euro;300&ndash;400. Build partnerships. Launch email nurture.</p>
+          <p><strong>Budget:</strong> &euro;650/month &bull; <strong>Targets:</strong> 20+ attendees, 12&ndash;16% conversion, &euro;1,300+ monthly profit</p>
+          <p><strong>Channel Mix:</strong> 35% Meta ads &bull; 25% Instagram &bull; 15% Email &bull; 15% Partnerships &bull; 10% Word of mouth</p>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-marker p3">3</div>
+        <div class="phase-content">
+          <div class="phase-period">Months 7&ndash;12</div>
+          <h4>Scale &mdash; &ldquo;Maximize the Asset&rdquo;</h4>
+          <p>2 workshops/month. Raise prices (Group &euro;597, VIP &euro;1,197). Launch 1:1 coaching. Publish the book. Explore online format.</p>
+          <p><strong>Budget:</strong> &euro;1,100/month &bull; <strong>Targets:</strong> &euro;4,000&ndash;6,000/month revenue, 300+ email list, 10+ testimonials</p>
+          <p><strong>Channel Mix:</strong> 30% Meta ads &bull; 25% Content &bull; 15% Book PR &bull; 15% Partnerships &bull; 15% Referrals</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <h3>The Workshop as a Conversion Engine</h3>
+    <p>The workshop is not a marketing event &mdash; it is the product in miniature. It follows a deliberate emotional arc designed to create desire for the full program.</p>
+    <table>
+      <thead>
+        <tr><th>Segment</th><th>Duration</th><th>Purpose</th><th>Emotional State</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Grounding + opening</td><td>12 min</td><td>Create safety</td><td>Arriving, curious</td></tr>
+        <tr><td>Pillar 1: You are not broken</td><td>23 min</td><td>Dismantle false belief</td><td>Relief, recognition</td></tr>
+        <tr><td>Pillar 2: Your body is speaking</td><td>23 min</td><td>Connect insight to feeling</td><td>Emotional honesty</td></tr>
+        <tr><td>Pillar 3: Surrender and trust</td><td>20 min</td><td>Open the spiritual dimension</td><td>Vulnerable, stirred</td></tr>
+        <tr><td>Q&amp;A</td><td>10 min</td><td>Process</td><td>Reflective</td></tr>
+        <tr><td>Invitation + Close</td><td>7 min</td><td>Natural transition to offer</td><td>Held, grateful</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout terracotta">
+      <strong>Critical Design Principle:</strong> The workshop gives enough to create transformation AND leave a gap. Attendees should feel: &ldquo;That was powerful. And I can tell there&rsquo;s so much more.&rdquo;
+    </div>
+
+    <h3>Post-Workshop Conversion Sequence</h3>
+    <table>
+      <thead>
+        <tr><th>Timing</th><th>Channel</th><th>Content</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Same day (4h)</td><td>Email</td><td>Thank you + 1 key takeaway + soft program mention</td></tr>
+        <tr><td>Day 1</td><td>WhatsApp</td><td>Voice note from Ivana &mdash; personal, warm</td></tr>
+        <tr><td>Day 2</td><td>Email</td><td>Insights + testimonial + &ldquo;doors close [date]&rdquo;</td></tr>
+        <tr><td>Day 4</td><td>Email</td><td>Detailed program breakdown + pricing + payment plans</td></tr>
+        <tr><td>Day 7</td><td>Email</td><td>Final close &mdash; encouragement, not pressure</td></tr>
+        <tr><td>Day 8</td><td>&mdash;</td><td>Stop selling. Non-buyers enter nurture list.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 05. MARKETING PLAN -->
+  <!-- ============================================ -->
+  <div class="section" id="marketing">
+    <span class="section-number">05 &mdash; Marketing Plan</span>
+    <h2>Content, Ads &amp; Community</h2>
+    <p class="section-intro">The marketing plan centers on Instagram as the primary content platform, Meta Ads as the primary acquisition channel, WhatsApp as the community platform, and the book as the long-term content engine.</p>
+
+    <h3>Instagram Content Pillars</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon terracotta">1</div>
+        <h4>&ldquo;You&rsquo;re Not Broken&rdquo;</h4>
+        <p>Identity, labels, wholeness. Challenges the core wound. <em>&ldquo;What if nothing about you needs fixing?&rdquo;</em></p>
+      </div>
+      <div class="card">
+        <div class="card-icon sage">2</div>
+        <h4>&ldquo;Your Body Is Speaking&rdquo;</h4>
+        <p>Emotional eating, habits, body-mind connection. Ivana&rsquo;s strongest authority area. <em>&ldquo;It was never about the food.&rdquo;</em></p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">3</div>
+        <h4>&ldquo;From Control to Trust&rdquo;</h4>
+        <p>Surrender, peace, letting go. The spiritual dimension. <em>&ldquo;The harder you grip, the more life resists.&rdquo;</em></p>
+      </div>
+      <div class="card">
+        <div class="card-icon terracotta">4</div>
+        <h4>&ldquo;The Whole You&rdquo;</h4>
+        <p>Workshop glimpses, behind-the-scenes, Ivana&rsquo;s personal story. Builds trust and intimacy.</p>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <h3>Meta Ads Strategy</h3>
+    <table>
+      <thead>
+        <tr><th>Ad Set</th><th>Targeting</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wellness Interests</td><td>Women 25&ndash;55, Malta, interests in wellness, meditation, Bren&eacute; Brown, Gabor Mat&eacute;</td><td>Core audience</td></tr>
+        <tr><td>Life Stage Triggers</td><td>Women 25&ndash;55, Malta, interests in divorce, single mothers, mental health</td><td>Highest pain, highest conversion</td></tr>
+        <tr><td>Broad (no interests)</td><td>Women 28&ndash;50, Malta, no interest targeting</td><td>Let Meta algorithm find audience</td></tr>
+      </tbody>
+    </table>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">&euro;3-8</div>
+        <div class="stat-label">Malta CPM (vs &euro;15-30 UK)</div>
+      </div>
+      <div class="stat-card sage-border">
+        <div class="stat-number">&euro;2-6</div>
+        <div class="stat-label">Cost Per Registration</div>
+      </div>
+      <div class="stat-card gold-border">
+        <div class="stat-number">&euro;200-300</div>
+        <div class="stat-label">Ad Spend Per Workshop</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">35-80</div>
+        <div class="stat-label">Registrations Per Cycle</div>
+      </div>
+    </div>
+
+    <h3>Five Tested Ad Angles</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>1. &ldquo;Something Is Missing&rdquo;</h4>
+        <p><em>&ldquo;You look at your life and think &lsquo;I should be grateful.&rsquo; But inside, something feels hollow.&rdquo;</em></p>
+        <p><strong>Target:</strong> Exhausted Achiever, People-Pleaser</p>
+      </div>
+      <div class="card">
+        <h4>2. &ldquo;It Was Never About the Food&rdquo;</h4>
+        <p><em>&ldquo;After 7 years working with women on their weight, here&rsquo;s what I learned: the weight was never the problem.&rdquo;</em></p>
+        <p><strong>Target:</strong> Emotional Eater</p>
+      </div>
+      <div class="card">
+        <h4>3. &ldquo;The In-Between&rdquo;</h4>
+        <p><em>&ldquo;You&rsquo;ve been through something &mdash; and you haven&rsquo;t fully landed yet.&rdquo;</em></p>
+        <p><strong>Target:</strong> Post-Breakup Woman</p>
+      </div>
+      <div class="card">
+        <h4>4. &ldquo;The Low Hum&rdquo;</h4>
+        <p><em>&ldquo;There&rsquo;s a low hum of anxiety in your chest that never fully goes away.&rdquo;</em></p>
+        <p><strong>Target:</strong> Anxious People-Pleaser</p>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <h3>Community &amp; Partnerships</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon sage">&#9993;</div>
+        <h4>WhatsApp Community</h4>
+        <p>Primary community platform in Malta. Workshop alumni group. Weekly voice note from Ivana. Higher intimacy than any other channel.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">&#9734;</div>
+        <h4>Strategic Partnerships</h4>
+        <p><strong>Tier 1:</strong> Yoga studios, therapists, wellness practitioners (mutual referrals).<br><strong>Tier 2:</strong> Boutique hotels, organic cafes, women&rsquo;s networks.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 06. FINANCIAL PROJECTIONS -->
+  <!-- ============================================ -->
+  <div class="section" id="financials">
+    <span class="section-number">06 &mdash; Financial Projections</span>
+    <h2>Revenue Model &amp; Scenarios</h2>
+    <p class="section-intro">The business is profitable from Month 1. Break-even requires just 2 conversions per workshop &mdash; a low bar consistently achievable from 20+ attendees.</p>
+
+    <h3>Three-Year Revenue Projection</h3>
+
+    <!-- CSS Chart -->
+    <div class="chart-bars">
+      <div class="chart-bar-group">
+        <div class="chart-bar conservative" style="height:12%"><span class="bar-value">&euro;15K</span></div>
+        <div class="chart-bar base" style="height:25%"><span class="bar-value">&euro;32K</span></div>
+        <div class="chart-bar optimistic" style="height:35%"><span class="bar-value">&euro;45K</span></div>
+        <div class="chart-label">Year 1</div>
+      </div>
+      <div class="chart-bar-group">
+        <div class="chart-bar conservative" style="height:40%"><span class="bar-value">&euro;56K</span></div>
+        <div class="chart-bar base" style="height:70%"><span class="bar-value">&euro;112K</span></div>
+        <div class="chart-bar optimistic" style="height:92%"><span class="bar-value">&euro;167K</span></div>
+        <div class="chart-label">Year 2</div>
+      </div>
+      <div class="chart-bar-group">
+        <div class="chart-bar conservative" style="height:55%"><span class="bar-value">&euro;106K</span></div>
+        <div class="chart-bar base" style="height:88%"><span class="bar-value">&euro;227K</span></div>
+        <div class="chart-bar optimistic" style="height:100%"><span class="bar-value">&euro;354K</span></div>
+        <div class="chart-label">Year 3</div>
+      </div>
+    </div>
+    <div class="chart-legend">
+      <span class="leg-c">Conservative</span>
+      <span class="leg-b">Base</span>
+      <span class="leg-o">Optimistic</span>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <h3>Unit Economics Per Workshop Cycle</h3>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Conservative</th><th>Moderate</th><th>Strong</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Attendees</td><td>25</td><td>25</td><td>25</td></tr>
+        <tr><td>Conversion rate</td><td>12%</td><td>16%</td><td>20%</td></tr>
+        <tr><td>Conversions (Group + VIP)</td><td>3 (2+1)</td><td>4 (2+2)</td><td>5 (3+2)</td></tr>
+        <tr><td><strong>Revenue</strong></td><td><strong>&euro;1,991</strong></td><td><strong>&euro;2,988</strong></td><td><strong>&euro;3,485</strong></td></tr>
+        <tr><td>All-in cost</td><td>&euro;600</td><td>&euro;600</td><td>&euro;600</td></tr>
+        <tr><td><strong>Profit</strong></td><td><strong>&euro;1,391</strong></td><td><strong>&euro;2,388</strong></td><td><strong>&euro;2,885</strong></td></tr>
+        <tr><td>CAC per client</td><td>&euro;200</td><td>&euro;150</td><td>&euro;120</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Pricing Strategy</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>Value Equation</h4>
+        <p>Group program perceived value: <strong>&euro;830&ndash;925</strong><br>
+        Price: <strong>&euro;497</strong> (54% of perceived value)<br>
+        Payment plan: <strong>&euro;275 &times; 2</strong></p>
+      </div>
+      <div class="card">
+        <h4>Price Escalation Path</h4>
+        <p>Cohort 1 early bird: &euro;397 / &euro;897<br>
+        Cohort 1 standard: &euro;497 / &euro;997<br>
+        Cohort 3&ndash;4: &euro;597 / &euro;1,197<br>
+        Cohort 6+: &euro;697&ndash;797 / &euro;1,297&ndash;1,497</p>
+      </div>
+      <div class="card">
+        <h4>Key Financial Metrics</h4>
+        <p>Average LTV: <strong>~&euro;780</strong><br>
+        LTV:CAC Ratio: <strong>4.5:1</strong><br>
+        Profit Margin (steady state): <strong>70&ndash;82%</strong></p>
+      </div>
+    </div>
+
+    <h3>Revenue Diversification (Year 2&ndash;3)</h3>
+    <table>
+      <thead>
+        <tr><th>Revenue Stream</th><th>Year 2</th><th>Year 3</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Group + VIP coaching</td><td>&euro;59K&ndash;111K</td><td>&euro;71K&ndash;191K</td><td>Core revenue, rising prices</td></tr>
+        <tr><td>1:1 sessions (&euro;200&ndash;250)</td><td>&euro;14K&ndash;34K</td><td>&euro;24K&ndash;48K</td><td>Alumni upsell</td></tr>
+        <tr><td>Book sales + speaking</td><td>&euro;2K&ndash;10K</td><td>&euro;5K&ndash;30K</td><td>Authority asset</td></tr>
+        <tr><td>Digital course</td><td>&euro;0&ndash;12K</td><td>&euro;6K&ndash;40K</td><td>Launch Q3 Year 2</td></tr>
+        <tr><td>Retreats</td><td>&mdash;</td><td>&euro;0&ndash;30K</td><td>1&ndash;2 per year in Malta</td></tr>
+        <tr><td>Corporate workshops</td><td>&mdash;</td><td>&euro;0&ndash;15K</td><td>&euro;500&ndash;1,000/session</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout sage">
+      <strong>Cumulative 3-Year Revenue (Base Case): &euro;371,000</strong><br>
+      <strong>Cumulative 3-Year Profit (Base Case): &euro;291,000</strong><br>
+      Profit margins of 70&ndash;82% &mdash; among the highest of any business model. The primary cost is Ivana&rsquo;s time, which scales with premium pricing and digital products.
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 07. 90-DAY LAUNCH PLAN -->
+  <!-- ============================================ -->
+  <div class="section" id="launch">
+    <span class="section-number">07 &mdash; 90-Day Launch Plan</span>
+    <h2>From Zero to First Cohort</h2>
+    <p class="section-intro">Three 30-day blocks, each with a clear objective. Follow in sequence. Do not skip steps.</p>
+
+    <h3>Month 1: Foundation</h3>
+    <p><strong>Objective:</strong> Set up all infrastructure. Launch organic presence. Prepare for first workshop.</p>
+    <ul class="checklist">
+      <li>Register as self-employed in Malta (Jobsplus + Commissioner for Revenue)</li>
+      <li>Open separate business bank account + Stripe account</li>
+      <li>Set up MailerLite, Instagram Business, WhatsApp Business</li>
+      <li>Purchase domain (ivana.mt or underneaththebrokenness.com)</li>
+      <li>Build landing page for workshop registration</li>
+      <li>Create 9 Instagram posts (3 weeks of content) in Canva</li>
+      <li>Write workshop outline and rehearse full 90-minute run-through</li>
+      <li>Identify and book venue (3&ndash;4 weeks out)</li>
+      <li>Create first Meta ad creative (1 image + 1 selfie video)</li>
+      <li>Write 3 ad copy versions and launch campaign (&euro;10&ndash;15/day)</li>
+      <li>Send &ldquo;save the date&rdquo; to personal network</li>
+      <li>Set up 4 email templates (confirmation, 7-day, 3-day, 1-day reminders)</li>
+    </ul>
+
+    <h3>Month 2: Conversion &amp; Delivery</h3>
+    <p><strong>Objective:</strong> Convert workshop attendees. Begin delivering 8-week program. Collect first testimonials.</p>
+    <ul class="checklist">
+      <li>Execute 7-day post-workshop email + WhatsApp conversion sequence</li>
+      <li>Personal WhatsApp follow-up with warm leads (voice notes, not text)</li>
+      <li>Process payments and onboard coaching clients</li>
+      <li>Send welcome emails, workbook, audio practices, WhatsApp group invite</li>
+      <li>Deliver weekly 90-min group sessions + individual voice note check-ins</li>
+      <li>VIP 1:1 sessions on separate day</li>
+      <li>Begin planning Workshop #2 (4&ndash;6 weeks out)</li>
+      <li>Record all metrics: registrations, attendees, conversions, revenue, CPL</li>
+    </ul>
+
+    <h3>Month 3: Second Cycle &amp; Refinement</h3>
+    <p><strong>Objective:</strong> Launch second workshop. Refine. Complete first cohort. Collect testimonials.</p>
+    <ul class="checklist">
+      <li>Create new ad creative (test a different angle)</li>
+      <li>Launch Meta ads for Workshop 2 (increase budget if Workshop 1 performed well)</li>
+      <li>Use first testimonials in ads and landing page</li>
+      <li>Activate referral requests with current coaching clients</li>
+      <li>Continue program delivery (deepest emotional phase &mdash; increase check-in frequency)</li>
+      <li>Deliver Workshop 2 with all learnings applied</li>
+      <li>Collect informal testimonials (WhatsApp quotes with permission)</li>
+      <li>Quarterly business review: revenue, CAC, conversion, retention, energy level</li>
+    </ul>
+
+    <div class="sub-divider"></div>
+
+    <h3>90-Day Success Scorecard</h3>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Workshops Delivered</div>
+      </div>
+      <div class="stat-card sage-border">
+        <div class="stat-number">35-50</div>
+        <div class="stat-label">Total Attendees</div>
+      </div>
+      <div class="stat-card gold-border">
+        <div class="stat-number">5-10</div>
+        <div class="stat-label">Paying Clients</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">&euro;3.5-7K</div>
+        <div class="stat-label">Revenue Collected</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 08. RISK ASSESSMENT -->
+  <!-- ============================================ -->
+  <div class="section" id="risks">
+    <span class="section-number">08 &mdash; Risk Assessment</span>
+    <h2>Key Risks &amp; Mitigation</h2>
+    <p class="section-intro">Nothing in this plan is risk-free. The following risks are acknowledged and mitigated.</p>
+
+    <div class="risk-grid">
+      <div class="risk-item">
+        <div class="risk-badge high">High</div>
+        <div>
+          <h4>Workshops don&rsquo;t fill (&lt;15 attendees)</h4>
+          <p>Lower threshold to 10. Boost organic. Activate personal network. Push date back 1 week. 8 women is intimate, not empty.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge high">High</div>
+        <div>
+          <h4>Conversion rate below 10%</h4>
+          <p>Diagnose root cause. Change ONE variable per cycle. Add payment plans. Add qualifying question to registration.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge high">High</div>
+        <div>
+          <h4>Ivana burnout / energy depletion</h4>
+          <p>Cap at 1 workshop/month in Phase 1&ndash;2. Protect Sundays. Build buffer between sessions. Hire VA when revenue supports it.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div>
+          <h4>Client mental health crisis</h4>
+          <p>Crisis protocol: validate, acknowledge boundary, refer to Malta services (Richmond Foundation 1770, Supportline 179). Maintain coaching-vs-therapy distinction.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div>
+          <h4>Negative feedback / public review</h4>
+          <p>HEAR framework: Hear, Evaluate, Act, Respond with grace. Never engage in public arguments. Never delete comments unless personal attacks.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div>
+          <h4>Pricing objection blocks conversion</h4>
+          <p>Payment plans (&euro;275 &times; 2). Per-session reframing (&euro;62/week). Two-session money-back guarantee. Workshop early bird discount.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge med">Med</div>
+        <div>
+          <h4>Meta ads underperform</h4>
+          <p>Diversify: grow organic Instagram, activate partnerships, increase referral investment. Test new ad angles quarterly.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge low">Low</div>
+        <div>
+          <h4>Competitor enters with similar positioning</h4>
+          <p>Deepen moat: publish book faster, build alumni community, secure partnership exclusivities, double down on content quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout terracotta">
+      <strong>Revenue Shortfall Contingency:</strong> If Year 1 revenue tracks below &euro;15K by Month 6: cut ad spend to organic-only, launch 1:1 coaching at &euro;150/session, add &ldquo;refresher&rdquo; cohort for past participants at &euro;197, test smaller bi-weekly workshops, seek corporate wellness bookings.
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 09. COMPETITIVE MOAT -->
+  <!-- ============================================ -->
+  <div class="section" id="moat">
+    <span class="section-number">09 &mdash; Competitive Moat</span>
+    <h2>Five Layers of Defensibility</h2>
+    <p class="section-intro">In a low-barrier market, Ivana&rsquo;s defensibility is built on accumulated advantages that are difficult to replicate quickly.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon terracotta">1</div>
+        <h4>Dual-Lens Positioning</h4>
+        <p>Psychology + spirituality integrated. Requires genuine fluency in both domains. 7 years of clinical-adjacent work + experiential spiritual practice. <strong>Cannot be faked or quickly acquired.</strong></p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">2</div>
+        <h4>The Book as Authority Asset</h4>
+        <p><em>Underneath the Brokenness</em> = credibility accelerator, content engine, lead magnet, curriculum foundation, and PR asset. <strong>Years of lived experience cannot be replicated with a weekend cert.</strong></p>
+      </div>
+      <div class="card">
+        <div class="card-icon sage">3</div>
+        <h4>Intimate Format &amp; Community</h4>
+        <p>8&ndash;12 women per cohort creates depth, safety, alumni bonds, and natural scarcity. By Cohort 5&ndash;6: 40&ndash;60+ women in a connected Malta tribe. <strong>No competitor can manufacture this.</strong></p>
+      </div>
+      <div class="card">
+        <div class="card-icon terracotta">4</div>
+        <h4>Cultural Bridge (Serbian-Maltese)</h4>
+        <p>Outsider-insider position: names cultural patterns locals can&rsquo;t see. Her immigration/identity story mirrors her clients&rsquo; emotional displacement. <strong>Personal history cannot be copied.</strong></p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">5</div>
+        <h4>Trust Compounding in a Micro-Market</h4>
+        <p>In 530K people, reputation IS the competitive advantage. Within 12&ndash;18 months: &ldquo;the woman in Malta who does that workshop&rdquo; = category ownership. <strong>First-mover in a niche creates natural monopoly.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 10. KEY METRICS & BENCHMARKS -->
+  <!-- ============================================ -->
+  <div class="section" id="appendix">
+    <span class="section-number">10 &mdash; Key Metrics &amp; Benchmarks</span>
+    <h2>At a Glance</h2>
+
+    <h3>Key Financial Metrics</h3>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Workshop capacity</td><td>20&ndash;25 attendees</td></tr>
+        <tr><td>Target show rate</td><td>65%+ (over-register by 2&times;)</td></tr>
+        <tr><td>Target conversion rate</td><td>12&ndash;16%</td></tr>
+        <tr><td>Revenue per workshop cycle</td><td>&euro;2,000&ndash;3,000</td></tr>
+        <tr><td>Cost per workshop cycle</td><td>&euro;500&ndash;700</td></tr>
+        <tr><td>CAC per registrant</td><td>&euro;8&ndash;12</td></tr>
+        <tr><td>CAC per paying client</td><td>&euro;120&ndash;200</td></tr>
+        <tr><td>Average LTV (weighted)</td><td>~&euro;780</td></tr>
+        <tr><td>LTV:CAC ratio</td><td>4.5:1</td></tr>
+        <tr><td>Break-even per workshop</td><td>2 conversions at any tier</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Malta-Specific Channel Benchmarks</h3>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Malta Benchmark</th><th>Ivana Target</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Meta CPM (wellness)</td><td>&euro;3&ndash;8</td><td>&euro;5</td></tr>
+        <tr><td>Meta CPL (free event)</td><td>&euro;2&ndash;6</td><td>&euro;4</td></tr>
+        <tr><td>Free event show rate</td><td>50&ndash;60%</td><td>65%+</td></tr>
+        <tr><td>Instagram engagement rate</td><td>3&ndash;5%</td><td>5%+</td></tr>
+        <tr><td>Email open rate</td><td>25&ndash;35%</td><td>40%+</td></tr>
+        <tr><td>WhatsApp read rate</td><td>90%+</td><td>95%+</td></tr>
+        <tr><td>Referral rate (post-program)</td><td>20&ndash;30%</td><td>50%+</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Seasonal Planning Calendar</h3>
+    <table>
+      <thead>
+        <tr><th>Month</th><th>Demand</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>January</td><td><span class="pill terracotta">High</span></td><td>2 workshops. Heaviest ad spend. New Year energy.</td></tr>
+        <tr><td>February&ndash;March</td><td><span class="pill gold">Medium</span></td><td>1 workshop each. Steady state.</td></tr>
+        <tr><td>April&ndash;May</td><td><span class="pill gold">Medium</span></td><td>Avoid Easter weekend. Last push before summer.</td></tr>
+        <tr><td>June</td><td><span class="pill gold">Medium</span></td><td>1 workshop early in month.</td></tr>
+        <tr><td>July&ndash;August</td><td><span class="pill sage">Low</span></td><td>No workshops. Organic + nurture only. Plan for September.</td></tr>
+        <tr><td>September</td><td><span class="pill terracotta">High</span></td><td>2 workshops. Second-highest ad spend. Back-to-routine energy.</td></tr>
+        <tr><td>October&ndash;November</td><td><span class="pill gold">Medium</span></td><td>1&ndash;2 workshops. Strong demand.</td></tr>
+        <tr><td>December</td><td><span class="pill sage">Low</span></td><td>1 workshop early. No workshop after Dec 15.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CLOSING -->
+  <!-- ============================================ -->
+  <div class="section" style="text-align:center; padding: 80px 0;">
+    <div class="cover-divider" style="margin-bottom: 40px;"></div>
+    <h2 style="margin-bottom: 16px;">This plan is a living document.</h2>
+    <p style="max-width: 600px; margin: 0 auto; color: #8B7B6B; font-size: 1.05rem;">
+      Update quarterly based on actual performance data, market feedback, and evolving priorities.
+      The numbers are projections &mdash; the strategy is the compass.
+    </p>
+    <div class="cover-divider" style="margin-top: 40px;"></div>
+    <p style="color: #aaa; font-size: 0.8rem; margin-top: 30px;">
+      Prepared March 2026<br>
+      BCG Strategy &bull; McKinsey Research &bull; Marketing Planning &bull; Consumer Psychology
+    </p>
+  </div>
+
+</div><!-- .container -->
+
+</body>
+</html>
